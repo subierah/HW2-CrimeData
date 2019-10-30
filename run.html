@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-<!-- load google maps and crime data -->
+<!-- load google maps -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+
+<!-- load crime data as chicago -->
 <script src="crime_2012_december.json" ></script>
 
 <!-- load exercise code -->
@@ -16,23 +18,35 @@
 
 // number of records
 var records = exercise.countRecords(chicago.data);
-console.log(records);
+console.log('Total number of Chicago crime records: ' + records);
+// there are 25172 in the chicago records
 
 // number of district 018 crimes
 var crimes = exercise.countDistrictCrimes(chicago.data,'018');
-console.log(crimes);
+console.log('Total number of crimes in District 018: ' + crimes);
+// there are 1141 crimes in District 018
 
 // number of primary type crime 'THEFT'
 var thefts = exercise.countPrimaryType(chicago.data, 'THEFT');
-console.log(thefts);
+console.log('There are ' + thefts + ' crimes classified as primary type THEFT in Chicago');
+// there are 5865 crimes classified as primary type theft
 
 // number of crimes in 'STREET'
 var locations = exercise.countLocation(chicago.data, 'STREET');
-console.log(locations);
+console.log('There are ' + locations + ' crimes that happen in STREET locations');
+// there are 5434 crimes that happen in STREET locations
+
+//------------------------------------------------------------
 
 
 var points = [];
 var points = chicago.data.map(exercise.buildLatLngPoint);
+
+/*
+    for map: array.map(function to do on every array element)
+        the chicago.data --> array
+
+ */
 
 </script>
 
